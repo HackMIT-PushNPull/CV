@@ -1,9 +1,8 @@
 import cv2
 
-
-cap = cv2.VideoCapture('video.MP4')
+cap = cv2.VideoCapture('test.mov')
 fps = int(cap.get(cv2.CAP_PROP_FPS))
-save_interval = 10
+save_interval = 3
 
 frame_count = 0
 i=0
@@ -12,7 +11,6 @@ if cap.isOpened():
     ret, frame = cap.read()
     if ret:
         im2 = frame
-
 
 while cap.isOpened():
     ret, frame = cap.read()
@@ -34,5 +32,5 @@ while cap.isOpened():
     # Break the loop
     else:
         break
-
+    cv2.imwrite('imfinal.jpg', frame)
 cap.release()
